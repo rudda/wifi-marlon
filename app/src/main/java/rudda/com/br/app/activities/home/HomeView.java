@@ -11,6 +11,7 @@ public interface HomeView {
     public void  setUserOfDrawer(GoogleSignInAccount account);
     public void registerEventBus();
     public void unregisterEventBus();
+    public void addAccessPoint();
 
 
 
