@@ -10,7 +10,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.Task;
 
+import org.greenrobot.eventbus.EventBus;
+
 import rudda.com.br.app.R;
+import rudda.com.br.app.activities.home.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView, View.OnClickListener{
 
@@ -52,7 +55,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     @Override
     public void loginSucess(GoogleSignInAccount account) {
 
-        Toast.makeText(this, "Login realizado com sucess "+account.getDisplayName(), Toast.LENGTH_SHORT).show();
+        EventBus.getDefault().postSticky(account);
+        Intent it = new Intent(this, HomeActivity.class);
+        startActivity(it);
+        finish();
 
     }
 
