@@ -1,5 +1,7 @@
 package rudda.com.br.app.activities.home;
 
+import android.view.View;
+
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 /**
@@ -11,7 +13,7 @@ public interface HomeView {
     public void  setUserOfDrawer(GoogleSignInAccount account);
     public void registerEventBus();
     public void unregisterEventBus();
-    public void addAccessPoint();
+    public void addAccessPoint(View view);
 
 
 

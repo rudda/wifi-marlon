@@ -1,9 +1,11 @@
 package rudda.com.br.app.activities.home;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -15,6 +17,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 
 import rudda.com.br.app.R;
+import rudda.com.br.app.activities.access_point_new.NewAccessPointActivity;
 import rudda.com.br.app.domain.app.User;
 
 public class HomeActivity extends AppCompatActivity implements HomeView{
@@ -74,6 +77,14 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
 
         EventBus.getDefault().unregister(this);
 
+
+    }
+
+    @Override
+    public void addAccessPoint(View view) {
+
+        Intent it = new Intent(this, NewAccessPointActivity.class);
+        startActivity(it);
 
     }
 }

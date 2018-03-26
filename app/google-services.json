@@ -1,0 +1,94 @@
+{
+  "project_info": {
+    "project_number": "1092141745197",
+    "firebase_url": "https://wifi-9b62a.firebaseio.com",
+    "project_id": "wifi-9b62a",
+    "storage_bucket": "wifi-9b62a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092141745197:android:c7b765e301ab3fbf",
+        "android_client_info": {
+          "package_name": "br.dev.app.wifi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092141745197-mleljdb8bmje79a9c00nhqo81r7muvdp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1092141745197-e3paq1ap5ssobvc1bdp1csnhbkbfaa12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7tOjuAf2oiRrinM4uIND2s0vmETA30Rg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092141745197:android:51e407699172dcf7",
+        "android_client_info": {
+          "package_name": "rudda.com.br.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092141745197-mleljdb8bmje79a9c00nhqo81r7muvdp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1092141745197-8s8jhqc0cvdp365qtf1554k88fr9p25g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rudda.com.br.app",
+            "certificate_hash": "56169e222236445ce55e011379e54ea49b4c9056"
+          }
+        },
+        {
+          "client_id": "1092141745197-e3paq1ap5ssobvc1bdp1csnhbkbfaa12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7tOjuAf2oiRrinM4uIND2s0vmETA30Rg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092141745197-mleljdb8bmje79a9c00nhqo81r7muvdp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
