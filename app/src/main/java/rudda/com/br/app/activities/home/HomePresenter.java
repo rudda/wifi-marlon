@@ -20,22 +20,30 @@ import java.util.List;
 
 import rudda.com.br.app.R;
 import rudda.com.br.app.domain.AccessPoint;
+import rudda.com.br.app.domain.Anuncio;
 import rudda.com.br.app.domain.app.User;
 
 /**
  * Created by Rudda Beltrao on 25/03/2018.
  */
 
-public class HomePresenter {
+public class HomePresenter implements HomeModal.onHomeModal {
 
     private HomeModal modal;
     private List<AccessPoint> mAccessPointList;
     private Drawer drawer   ;
 
+    private List<Anuncio> anuncioList;
+    private HomeView view;
 
-    public HomePresenter() {
+    public HomePresenter(HomeView view) {
 
         this.mAccessPointList = new ArrayList<>();
+        this.anuncioList = new ArrayList<>();
+
+        this.view = view;
+
+        modal = new HomeModal(this);
 
     }
 
@@ -81,4 +89,11 @@ public class HomePresenter {
     }
 
 
+    @Override
+    public void onLoadAnunciosAdd(Anuncio anuncio) {
+
+        this.anuncioList.add(anuncio);
+        view.updateListOfAnuncios(this.anuncioList);
+
+    }
 }

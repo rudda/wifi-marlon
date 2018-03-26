@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.FirebaseApp;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
@@ -28,6 +29,7 @@ public class CustomApplication extends Application {
         super.onCreate();
 
         FirebaseApp.initializeApp(this);
+        Fresco.initialize(this);
 
         DrawerImageLoader.init(new AbstractDrawerImageLoader() {
             @Override
