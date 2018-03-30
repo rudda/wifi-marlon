@@ -48,7 +48,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
         presenter = new HomePresenter(this);
 
         mRecyclerView  = (RecyclerView) findViewById(R.id.recyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        this.llm = new LinearLayoutManager(this);
+        this.llm.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(llm);
         this.anuncioList = new ArrayList<>();
 
         adp = new AnunciosAdapter(this.anuncioList, this, new AnunciosAdapter.onWifiClick() {
@@ -99,15 +101,23 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
     @Override
     public void registerEventBus() {
 
-        EventBus.getDefault().register(this);
+        try {
+            EventBus.getDefault().register(this);
+        }catch (Exception Err){
+
+
+        }
 
     }
 
     @Override
     public void unregisterEventBus() {
 
-        EventBus.getDefault().unregister(this);
+        try {
+            EventBus.getDefault().unregister(this);
+        }catch (Exception e){
 
+        }
 
     }
 
@@ -121,8 +131,24 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
 
     @Override
     public void updateListOfAnuncios(List<Anuncio> anuncios) {
-
+        this.anuncioList = new ArrayList<>();
         this.anuncioList = anuncios;
+        Log.i("HOME", "anuncios "+this.anuncioList.size());
+        this.llm = new LinearLayoutManager(this);
+        this.llm.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(llm);
+
+
+        adp = new AnunciosAdapter(this.anuncioList, this, new AnunciosAdapter.onWifiClick() {
+            @Override
+            public void wifiConnect(AccessPoint w) {
+
+                Toast.makeText(HomeActivity.this, "aqui voce pode chamar para conectar wifi "+w.getSSID()+" com a senha "+w.getPreSharedKey(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        mRecyclerView.setAdapter(adp);
+
         adp.notifyDataSetChanged();
 
     }

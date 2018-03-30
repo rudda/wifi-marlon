@@ -3,6 +3,7 @@ package rudda.com.br.app.activities.home;
 import android.app.Activity;
 import android.net.Uri;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -94,6 +95,7 @@ public class HomePresenter implements HomeModal.onHomeModal {
 
         this.anuncioList.add(anuncio);
         view.updateListOfAnuncios(this.anuncioList);
+        Log.i("HOME", "add anuncion "+ anuncio.getName());
 
     }
 }
