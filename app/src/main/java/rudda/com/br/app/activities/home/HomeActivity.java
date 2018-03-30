@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -17,10 +18,13 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import rudda.com.br.app.R;
 import rudda.com.br.app.activities.access_point_new.NewAccessPointActivity;
+import rudda.com.br.app.adapter.AnunciosAdapter;
+import rudda.com.br.app.domain.AccessPoint;
 import rudda.com.br.app.domain.Anuncio;
 import rudda.com.br.app.domain.app.User;
 
@@ -33,6 +37,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
     private List<Anuncio> anuncioList;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager llm;
+    private AnunciosAdapter adp;
 
 
     @Override
@@ -41,6 +46,21 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
         setContentView(R.layout.activity_home);
         this.tb =  (Toolbar) findViewById(R.id.tb);
         presenter = new HomePresenter(this);
+
+        mRecyclerView  = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        this.anuncioList = new ArrayList<>();
+
+        adp = new AnunciosAdapter(this.anuncioList, this, new AnunciosAdapter.onWifiClick() {
+            @Override
+            public void wifiConnect(AccessPoint w) {
+
+                Toast.makeText(HomeActivity.this, "aqui voce pode chamar para conectar wifi "+w.getSSID()+" com a senha "+w.getPreSharedKey(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
 
 
     }
@@ -103,7 +123,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
     public void updateListOfAnuncios(List<Anuncio> anuncios) {
 
         this.anuncioList = anuncios;
-
+        adp.notifyDataSetChanged();
 
     }
 }
